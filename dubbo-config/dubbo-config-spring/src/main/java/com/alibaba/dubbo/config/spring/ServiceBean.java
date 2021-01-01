@@ -258,6 +258,7 @@ public class ServiceBean<T> extends ServiceConfig<T> implements InitializingBean
                 setPath(beanName);
             }
         }
+        // delay：延时暴露，为 null or -1时, 表示spring容器初始化后暴露服务
         if (!isDelay()) {
             export();
         }
