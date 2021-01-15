@@ -24,19 +24,12 @@ limitations under the License.
     <dubbo:application name="demo-injvm"/>
 
     <dubbo:registry address="N/A"/>
-
-    <dubbo:reference id="demoService" interface="com.alibaba.dubbo.demo.DemoService" protocol="injvm" validation="true">
-        <dubbo:parameter key="deprecated" value="true" />
-    </dubbo:reference>
-
     <bean id="demoServiceImpl" class="com.alibaba.dubbo.demo.consumer.DemoServiceImpl"/>
-
     <dubbo:service interface="com.alibaba.dubbo.demo.DemoService" ref="demoServiceImpl" protocol="injvm" >
         <dubbo:parameter key="tps" value="100" />
     </dubbo:service>
 
-    <dubbo:provider>
-
-    </dubbo:provider>
-
+    <dubbo:reference id="demoService" interface="com.alibaba.dubbo.demo.DemoService" protocol="injvm" validation="true">
+        <dubbo:parameter key="deprecated" value="true" />
+    </dubbo:reference>
 </beans>

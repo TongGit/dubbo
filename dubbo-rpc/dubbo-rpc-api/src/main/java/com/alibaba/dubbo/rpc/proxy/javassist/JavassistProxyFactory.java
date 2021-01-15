@@ -19,6 +19,7 @@ package com.alibaba.dubbo.rpc.proxy.javassist;
 import com.alibaba.dubbo.common.URL;
 import com.alibaba.dubbo.common.bytecode.Proxy;
 import com.alibaba.dubbo.common.bytecode.Wrapper;
+import com.alibaba.dubbo.common.utils.StackTraceElementUtils;
 import com.alibaba.dubbo.rpc.Invoker;
 import com.alibaba.dubbo.rpc.proxy.AbstractProxyFactory;
 import com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker;
@@ -33,6 +34,7 @@ public class JavassistProxyFactory extends AbstractProxyFactory {
 
     @SuppressWarnings("unchecked")
     public <T> T getProxy(Invoker<T> invoker, Class<?>[] interfaces) {
+        StackTraceElementUtils.printStackTrace();
         return (T) Proxy.getProxy(interfaces).newInstance(new InvokerInvocationHandler(invoker));
     }
 

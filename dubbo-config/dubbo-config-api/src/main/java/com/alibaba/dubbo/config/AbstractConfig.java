@@ -547,40 +547,41 @@ public abstract class AbstractConfig implements Serializable {
      */
     @Override
     public String toString() {
-        try {
-            StringBuilder buf = new StringBuilder();
-            buf.append("<dubbo:");
-            buf.append(getTagName(getClass()));
+//        try {
+//            StringBuilder buf = new StringBuilder();
+//            buf.append("<dubbo:");
+//            buf.append(getTagName(getClass()));
             Method[] methods = getClass().getMethods();
-            for (Method method : methods) {
-                try {
-                    String name = method.getName();
-                    if ((name.startsWith("get") || name.startsWith("is"))
-                            && !"getClass".equals(name) && !"get".equals(name) && !"is".equals(name)
-                            && Modifier.isPublic(method.getModifiers())
-                            && method.getParameterTypes().length == 0
-                            && isPrimitive(method.getReturnType())) {
-                        int i = name.startsWith("get") ? 3 : 2;
-                        String key = name.substring(i, i + 1).toLowerCase() + name.substring(i + 1);
-                        Object value = method.invoke(this, new Object[0]);
-                        if (value != null) {
-                            buf.append(" ");
-                            buf.append(key);
-                            buf.append("=\"");
-                            buf.append(value);
-                            buf.append("\"");
-                        }
-                    }
-                } catch (Exception e) {
-                    logger.warn(e.getMessage(), e);
-                }
-            }
-            buf.append(" />");
-            return buf.toString();
-        } catch (Throwable t) {
-            logger.warn(t.getMessage(), t);
-            return super.toString();
-        }
+//            for (Method method : methods) {
+//                try {
+//                    String name = method.getName();
+//                    if ((name.startsWith("get") || name.startsWith("is"))
+//                            && !"getClass".equals(name) && !"get".equals(name) && !"is".equals(name)
+//                            && Modifier.isPublic(method.getModifiers())
+//                            && method.getParameterTypes().length == 0
+//                            && isPrimitive(method.getReturnType())) {
+//                        int i = name.startsWith("get") ? 3 : 2;
+//                        String key = name.substring(i, i + 1).toLowerCase() + name.substring(i + 1);
+//                        Object value = method.invoke(this, new Object[0]);
+//                        if (value != null) {
+//                            buf.append(" ");
+//                            buf.append(key);
+//                            buf.append("=\"");
+//                            buf.append(value);
+//                            buf.append("\"");
+//                        }
+//                    }
+//                } catch (Exception e) {
+//                    logger.warn(e.getMessage(), e);
+//                }
+//            }
+//            buf.append(" />");
+//            return buf.toString();
+//        } catch (Throwable t) {
+//            logger.warn(t.getMessage(), t);
+//            return super.toString();
+//        }
+        return "省略，toString...";
     }
 
 }

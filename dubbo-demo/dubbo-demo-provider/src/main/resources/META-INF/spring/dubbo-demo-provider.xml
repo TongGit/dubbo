@@ -72,7 +72,7 @@ limitations under the License.
 
 
     </dubbo:service>
-
+    <dubbo:reference id="demoServic" interface="com.alibaba.dubbo.demo.DemoService" />
     <!--&lt;!&ndash; declare the service interface to be exported &ndash;&gt;-->
     <!--<dubbo:service interface="com.alibaba.dubbo.demo.DemoService" group="g2" ref="demoService" filter="demo" deprecated="false" callbacks="1000" timeout="200000" accesslog="true">-->
         <!--&lt;!&ndash;<dubbo:service interface="com.alibaba.dubbo.demo.DemoService" protocol="dubbo" ref="demoService"/>&ndash;&gt;-->
