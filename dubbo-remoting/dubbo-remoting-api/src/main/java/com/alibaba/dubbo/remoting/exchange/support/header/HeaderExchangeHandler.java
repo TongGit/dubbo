@@ -199,6 +199,7 @@ public class HeaderExchangeHandler implements ChannelHandlerDelegate {
 
     @Override
     public void received(Channel channel, Object message) throws RemotingException {
+        System.out.println("headerExchangeHandler received:" + message);
         // 设置最后的读时间
         channel.setAttribute(KEY_READ_TIMESTAMP, System.currentTimeMillis());
         // 创建 ExchangeChannel 对象
