@@ -16,7 +16,7 @@
  */
 package com.alibaba.dubbo.demo.consumer;
 
-import com.alibaba.dubbo.common.utils.StackTraceElementUtils;
+import com.alibaba.dubbo.demo.ConnectionTestService;
 import com.alibaba.dubbo.demo.DemoService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -29,6 +29,7 @@ public class Consumer {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"META-INF/spring/dubbo-demo-consumer.xml"});
         context.start();
         DemoService demoService = (DemoService) context.getBean("demoService"); // get remote service proxy
+        ConnectionTestService testService = (ConnectionTestService) context.getBean("connectionTest"); // get remote service proxy
 
         while (true) {
             try {
@@ -47,7 +48,27 @@ public class Consumer {
 //                ((EchoService) demoService).$echo("test4u");
 //                ((EchoService) demoService).$echo("test4u");
 
-                demoService.sayHello("world");
+                String w1 = demoService.sayHello("w1");
+                System.out.println("$=>w1:"+w1 );
+                w1 = demoService.sayHello("w2");
+                System.out.println("$=>w1:"+w1 );
+                w1 =demoService.sayHello("w3");
+                System.out.println("$=>w1:"+w1 );
+                w1 =demoService.sayHello("w4");
+                System.out.println("$=>w1:"+w1 );
+                w1 =demoService.sayHello("w5");
+                System.out.println("$=>w1:"+w1 );
+
+                String a = testService.wahaha("a");
+                System.out.println("$=>a:"+a );
+                a =testService.wahaha("b");
+                System.out.println("$=>a:"+a );
+                a=testService.wahaha("c");
+                System.out.println("$=>a:"+a );
+                a=testService.wahaha("d");
+                System.out.println("$=>a:"+a );
+                a=testService.wahaha("e");
+                System.out.println("$=>a:"+a );
 //                ProtocolConfig.destroyAll();
 
                 Thread.sleep(10000000);

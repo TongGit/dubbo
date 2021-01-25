@@ -40,6 +40,7 @@ limitations under the License.
 
     <!-- service implementation, as same as regular local bean -->
     <bean id="demoService" class="com.alibaba.dubbo.demo.provider.DemoServiceImpl"/>
+    <bean id="testService" class="com.alibaba.dubbo.demo.provider.ConnectionTestServiceImpl"/>
 
     <!--<bean id="genericService" class="com.alibaba.dubbo.demo.provider.MyGenericService" />-->
 
@@ -47,6 +48,7 @@ limitations under the License.
     <!--<dubbo:service  interface="com.alibaba.dubbo.demo.DemoService" group="g1" ref="demoService" filter="demo" deprecated="false" callbacks="1000" timeout="200000" accesslog="true"-->
         <!--&gt;-->
     <dubbo:service interface="com.alibaba.dubbo.demo.DemoService" protocol="dubbo" ref="demoService" timeout="1200000" accesslog="true" group="g1"/>
+    <dubbo:service interface="com.alibaba.dubbo.demo.ConnectionTestService" protocol="dubbo" ref="testService" timeout="1200000" accesslog="true" group="g1"/>
     <!--<dubbo:service id="sa" interface="com.alibaba.dubbo.demo.DemoService" protocol="dubbo" class="com.alibaba.dubbo.demo.provider.DemoServiceImpl">-->
         <!--&lt;!&ndash;<dubbo:method name="sayHello" retries="100">&ndash;&gt;-->
             <!--&lt;!&ndash;&lt;!&ndash;<dubbo:argument index="0" callback="true" />&ndash;&gt;&ndash;&gt;-->

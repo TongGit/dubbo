@@ -50,6 +50,9 @@ limitations under the License.
         <!--<dubbo:method name="sayHello" async="true" onreturn="callbackDemo.done" />-->
         
     </dubbo:reference>
+   <dubbo:reference id="connectionTest" group="g1" client="netty4" registry="zk01" timeout="1200000" interface="com.alibaba.dubbo.demo.ConnectionTestService">
+
+   </dubbo:reference>
 
     <!--<dubbo:reference id="demoService2" group="g2" check="false" interface="com.alibaba.dubbo.demo.DemoService" client="netty4" timeout="10000" callbacks="1000" registry="zk01" cluster="failback">-->
         <!--&lt;!&ndash;<dubbo:method name="sayHello" />&ndash;&gt;-->
